@@ -8,6 +8,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +28,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+            }
+        });
+
+        Button dice_roll_button = findViewById(R.id.dice_roll_button);
+        final TextView dice_roll_text = findViewById(R.id.dice_roll_context);
+
+        dice_roll_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Random rand = new Random();
+                int dice_roll = rand.nextInt(6) + 1;
+
+                dice_roll_text.setText("Rolled a " + dice_roll);
             }
         });
     }
